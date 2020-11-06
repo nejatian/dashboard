@@ -1,0 +1,212 @@
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:calc(50vh - 60px);  
+    right: calc(50% - 137px);
+    z-index: 10;
+    transition: right 3s,top 1.5s;
+    transition-timing-function: ease-in
+}
+/* --animation------------------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    .landing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top:30vh;  
+        right: calc(50% - 137px);
+        z-index: 10;
+        transition:top 1s;
+        transition-timing-function: ease-in
+    }
+    .right {
+        min-height: 100vh;
+        /* background-color: #F8F8F8; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: -100%;
+        transition: right 3s;
+        transition-timing-function: ease-out
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .landing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top:calc(50vh - 60px);  
+        right: calc(50% - 137px);
+        z-index: 10;
+        transition: right 3s,top 1.5s;
+        transition-timing-function: ease-in
+    }
+    .right {
+        min-height: 100vh;
+        /* background-color: #F8F8F8; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: -50%;
+        transition: right 2s;
+        transition-timing-function: ease-out
+    }
+}
+.parent {
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    background-color: #F8F8F8;
+    overflow: hidden;
+}
+
+.left {
+    background-image: url("../assets/pump .jpg");
+    background-position-x: center;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: -50%;
+    transition: left 6s;
+}
+
+.left-filter {
+    background-color: rgba(151, 0, 4, 0.75);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    width: 85%;
+}
+
+.header-text-2 {
+    margin-top: 24px;
+}
+
+.body-text-3 {
+    margin-top: 12px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-space {
+    width: 70%;
+    height: 60px;
+    margin-bottom: 80px;
+}
+
+.input-container {
+    width: 100%;
+    height: 55px;
+    border: #9CA5AE 1px solid;
+    border-radius: 27px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0 12px;
+    overflow: hidden;
+}
+
+.input-container:focus {
+    outline-color: aquamarine !important;
+    border: aqua;
+}
+
+.input-field {
+    border: none;
+    width: 100%;
+    height: 100%;
+    margin-right: 6px;
+}
+
+.input-field:focus {
+    border: none;
+    outline: none !important;
+}
+
+.rememberme {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.submit-container {
+    width: 100%;
+    margin-top: 36px;
+    border-radius: 27px;
+    margin-bottom: 24px;
+    overflow: hidden;
+
+}
+.submit-button{
+    border: none;
+    width: 100%;
+    height: 55px;
+    background: rgb(2,0,36);
+    background: linear-gradient(-90deg, rgba(151,0,4,1) 0%, rgba(229,74,78,1) 100%);
+}
+/*--------------------------------------------------------------------------------*/
+/*#check-box + label {*/
+/*    display: block;*/
+/*    margin: 0.2em;*/
+/*    cursor: pointer;*/
+/*    padding: 0.2em;*/
+/*}*/
+
+/*#check-box {*/
+/*    display: none;*/
+/*}*/
+
+/*#check-box + label:before {*/
+/*    content: "\2714";*/
+/*    border: 0.1em solid #000;*/
+/*    border-radius: 0.2em;*/
+/*    display: inline-block;*/
+/*    width: 1em;*/
+/*    height: 1em;*/
+/*    padding-left: 0.2em;*/
+/*    padding-bottom: 0.3em;*/
+/*    margin-right: 0.2em;*/
+/*    vertical-align: bottom;*/
+/*    color: transparent;*/
+/*    transition: .2s;*/
+/*}*/
+
+/*#check-box + label:active:before {*/
+/*    transform: scale(0);*/
+/*}*/
+
+/*#check-box:checked + label:before {*/
+/*    background-color: MediumSeaGreen;*/
+/*    border-color: MediumSeaGreen;*/
+/*    color: #fff;*/
+/*}*/
+
+/*#check-box:disabled + label:before {*/
+/*    transform: scale(1);*/
+/*    border-color: #aaa;*/
+/*}*/
+
+/*#check-box:checked:disabled + label:before {*/
+/*    transform: scale(1);*/
+/*    background-color: #bfb;*/
+/*    border-color: #bfb;*/
+/*}*/
+/*--------------------------------------------------------------------------------*/

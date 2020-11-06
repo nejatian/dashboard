@@ -1,0 +1,49 @@
+.data-main{
+    margin-top: 24px;
+    width: 100%;
+    padding-bottom: 36px;
+}
+.data-selection-card {
+    margin-top: 24px;
+    background-position-y: center;
+    background-size: cover;
+    padding: 0;
+}
+#data-card-admin {
+    background-image: url('../assets/admin.jpg');
+    background-position-y: 42%;
+}
+#data-card-station {
+    background-image: url('../assets/station.jpg');
+    background-position-y: 90%;
+}
+#data-card-technecian {
+    background-image: url('../assets/technecian.jpg');
+    background-position-y: 22%;
+
+}
+#data-card-devices {
+    background-image: url('../assets/devices.jpg');
+    background-position-y: center;
+}
+.data-red-mask {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgba(151, 0, 4, .8);
+}
+.data-section-card-hint{
+    margin-top: 24px
+}
+.data-section-card-num{
+    margin-top: 12px;
+}
+@media only screen and (min-width: 768px) {
+    .data-main{
+        margin-top: 24px;
+        width: 100%;
+        padding-bottom: 36px;
+        padding-right: 48px;
+        padding-left: 48px;
+    }
+}

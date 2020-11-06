@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>Pido-Dashboard</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="css/persian-datepicker.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-table.css" />
+    <link rel="stylesheet" href="css/bootstrap-table.min.css" />
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/persian-date.min.js"></script>
+    <script src="js/persian-datepicker.js"></script>
+
+    <script src="js/dist/Chart.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/html2pdf.bundle.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <page
+      backtop="10mm"
+      backbottom="20mm"
+      backleft="20mm"
+      backright="20mm"
+      style="font-family: IRANSans"
+      dir="rtl"
+    >
+      <div class="container-fluid">
+        <div class="row ra-dir">
+          <div
+            class="side-menu h-auto col-md-2 col-sm-2 col-lg-2 p-xs-right back-dark"
+          >
+            <div
+              onclick="close_drawer_menu()"
+              class="side-menu-back text-color-white d-wider-xs-none"
+            >
+              <span class="fa fa-arrow-right"></span>
+              <span class="ir-text-bold text-14">بازگشت</span>
+            </div>
+            <div class="side-menu-logo d-xs-none">
+              <img src="assets/logo_name_name.png" alt="logo" />
+            </div>
+
+            <div id="data" class="side-menu-item  text-color-white ">
+              <div class="d-flex align-items-center side-menu-item-title">
+                <span class="fa fa-database text-16"></span>
+                <span class="ir-text-medium text-16">داده</span>
+                <span class="fa fa-angle-left side-menu-icon"></span>
+              </div>
+              <div class="side-menu-sub-menu">
+                <a href="operation.html">
+                  <span class="fa fa-headset text-14"></span>
+                  <span class="ir-text-medium text-12">اپراتورها</span>
+                </a>
+                <a href="station.html">
+                  <span class="fa fa-gas-pump text-12"></span>
+                  <span class="ir-text-medium text-8">جایگاه ها</span>
+                </a>
+                <a href="experts.html" class="active-sub-menu-item">
+                  <span class="fa fa-suitcase text-14"></span>
+                  <span class="ir-text-medium text-12">متخصصین</span>
+                </a>
+                <a href="devices.html">
+                  <span class="fa fa-box text-14"></span>
+                  <span class="ir-text-medium text-12">ادوات</span>
+                </a>
+              </div>
+            </div>
+            <div id="data" class="side-menu-item  text-color-white ">
+              <div class="d-flex align-items-center side-menu-item-title">
+                <span class="fas fa-file-contract text-16"></span>
+                <span class="ir-text-medium text-16">گزارش ها</span>
+                <span class="fa fa-angle-left side-menu-icon"></span>
+              </div>
+              <div class="side-menu-sub-menu">
+                <a href="experts-Report.html" class="active-sub-menu-item">
+                  <span class="fas fa-suitcase text-14"></span>
+                  <span class="ir-text-medium text-12">متخصصین</span>
+                </a>
+                <a href="ticket-Report.html">
+                  <span class="fas fa-ticket-alt text-12"></span>
+                  <span class="ir-text-medium text-8">تیکت ها</span>
+                </a>
+                <a href="level-Reports.html">
+                  <span class="fas fa-layer-group text-14"> </span>
+                  <span class="ir-text-medium text-12">سطح ها</span>
+                </a>
+                <!-- <a href="devices.html">
+                <span class="fa fa-box text-14"></span>
+                <span class="ir-text-medium text-12">ادوات</span>
+              </a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+          <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12">
+            <div class="header xs-overflow-hide">
+              <div class="main-header">
+                <div onclick="open_account_menu()" class="account">
+                  <span class="fa fa-angle-down account-drop-down-icon"></span>
+                  <p class="user-name ir-text-medium text-14 d-xs-none">
+                    Pido Admin
+                  </p>
+                  <img
+                    src="assets/download.png"
+                    alt="profile image"
+                    class="profile-image"
+                  />
+                </div>
+                <div class="app-tools d-wider-xs-none">
+                  <span
+                    onclick="open_drawer_menu()"
+                    class="fa fa-bars text-22"
+                  ></span>
+                  <img
+                    src="assets/logo_name_name.png"
+                    alt="logo image"
+                    class="logo-image"
+                  />
+                </div>
+              </div>
+              <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+                <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+                <div class="account-menu-item">
+                  <span class="fa fa-bell text-12"></span>
+                  <span class="text-12 ir-text-medium">اعلان ها</span>
+                </div>
+                <div class="account-menu-item">
+                  <span class="fa fa-cog text-12"></span>
+                  <span class="text-12 ir-text-medium">تنظیمات</span>
+                </div>
+                <div class="account-menu-item">
+                  <span class="fa fa-sign-out-alt text-12"></span>
+                  <span class="text-12 ir-text-medium">خروج</span>
+                </div>
+                <span
+                  onclick="close_account_menu()"
+                  class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"
+                ></span>
+              </div>
+            </div>
+            <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+            <div
+              class="data-main container h-auto"
+              id="root"
+              dir="rtl"
+              style="font-family: IRANSans"
+            >
+              <div class="row align-items-center">
+                <div class="col-12 ">
+                  <div class="header-title">
+                    <h2><i class="fas fa-suitcase"></i> گزارش ها</h2>
+                    <p>
+                      دسته بندی گزارشات برای جایگاه‌ها، ادوات، متخصصین، سطوح و
+                      رسته‌ها موجود است، برای شروع بروی یکی از کارت‌ها کلیک
+                      نمایید.
+                    </p>
+                  </div>
+
+                  <div class="divider"></div>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="row align-items-center"></div>
+                <div
+                  class="col-12 col-md-12 col-lg-12 col-xl-12 col-sm-12 text-left"
+                >
+                  <span
+                    title="دریافت PDF"
+                    id="ToPDF"
+                    data-html2canvas-ignore
+                    style="cursor: pointer;"
+                    ><i
+                      class="fas fa-file-pdf fa-3x"
+                      style="cursor: pointer;"
+                    ></i
+                  ></span>
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="row report-card-container">
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>رسته ها</h2>
+                      <p>بیشترین و کمترین تعداد تیکت در رسته</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="catCountMax"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="catTypeMax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="catCountMin"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="catTypeMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="catInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>ادوات</h2>
+                      <p>بیشترین و کمترین تعداد تیکت در ادوات</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="deviceCountMax"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="deviceNameMax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="deviceCountMin"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="deviceNameMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="deviceInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>جایگاه ها</h2>
+                      <p>بیشترین و کمترین تعداد تیکت در جایگاه‌ها</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="stationCountMax"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="stationNameMax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="stationCountMin"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="stationNameMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="stationInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>متخصص</h2>
+                      <p>بیشترین و کمترین تعداد تیکت هر متخصص</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="expertTicketCountMax"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="expertNameMax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="expertTicketCountMin"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="expertNameMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="expertTicketInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>سطح</h2>
+                      <p>بیشترین و کمترین تعداد تیکت در هر سطح</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="levelCountmax"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="levelmax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="levelCountMin"
+                          >۰ عدد</span
+                        >
+                        <p class="recive-title" id="levelMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="levelInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-md-12 col-lg-4 col-xl-4 col-sm-12 box-report-card"
+                  >
+                    <div class="col-12 report-header-title text-center">
+                      <h2>امتیاز جایگاه ها</h2>
+                      <p>بیشترین و کمترین امتیاز در بین جایگاه ها</p>
+                      <div class="divider"></div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="stationRateMax">۰</span>
+                        <p class="recive-title" id="stationNamesMax"></p>
+                        <p class="recive-subtitle">بیشترین</p>
+                      </div>
+                      <div class="col-6 text-center">
+                        <span class="recive-number" id="stationRateMin">۰</span>
+                        <p class="recive-title" id="stationNamesMin"></p>
+                        <p class="recive-subtitle">کمترین</p>
+                      </div>
+                    </div>
+                    <div class="col-12 text-left">
+                      <div class="sorting-links">
+                        <span
+                          id="stationRateInfo"
+                          style="cursor: pointer;"
+                          data-html2canvas-ignore
+                        >
+                          <i class="fas fa-file-download"></i> دریافت
+                          اطلاعات</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center box-report-tables" id="page2el">
+                <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                  <div class="report-header-title">
+                    <h2>گزارش سالیانه</h2>
+                    <p>
+                      این گزارش بر اساس ۱۲ ماه سال شمسی مرتب شده است. برای شروع
+                      سال را وارد نمایید.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="col-12 col-md-4 col-lg-4 col-xl-4 col-sm-12 text-left "
+                >
+                  <div class="sorting-links">
+                    <span
+                      id="ChartRef"
+                      style="cursor: pointer;"
+                      data-html2canvas-ignore
+                    >
+                      <i class="fas fa-sync"></i> به روزرسانی</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12" >
+                  <form>
+                    <div class="row align-items-end">
+                      <!-- <div class="add-data-form-item col-12 col-md-5 col-lg-5 col-xl-5 col-sm-12">
+                    <label for="jalaliYearNumber">سال شمسی</label>
+                    <input class="text-14 ir-text-medium add-data-form-input" id="years" name="name" placeholder="مثلا ۱۳۹۸" type="text">
+                  </div>  -->
+
+                      <div class="col-2">
+                        سال
+                      </div>
+                      <div
+                        class="add-data-form-item col-12 col-md-5 col-lg-5 col-xl-5 col-sm-12"
+                      >
+                        <select
+                          class="selectpicker my-select form-control  filter-select form-select select w-30  "
+                          id="years"
+                          data-live-search="true"
+                        >
+                          <option value="0" selected="selected"
+                            >همه موارد</option
+                          >
+                          <option value="1407">۱۴۰۷</option>
+                          <option value="1406">۱۴۰۶</option>
+                          <option value="1405"> ۱۴۰۵</option>
+                          <option value="1404"> ۱۴۰۴</option>
+                          <option value="1403"> ۱۴۰۳</option>
+                          <option value="1402"> ۱۴۰۲</option>
+                          <option value="1401"> ۱۴۰۱</option>
+                          <option value="1400"> ۱۴۰۰</option>
+                          <option value="1399"> ۱۳۹۹</option>
+                          <option value="1398"> ۱۳۹۸</option>
+                          <option value="1397"> ۱۳۹۷</option>
+                        </select>
+                      </div>
+
+                      <div class="col-12 col-md-2 col-lg-2 col-xl-2 col-sm-12">
+                        <button
+                          type="button"
+                          class="btn btn-dark"
+                          id="filter-btn-chart"
+                          data-dismiss="modal"
+                          data-html2canvas-ignore
+                        >
+                          دریافت گزارش
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="col-12 report-charts">
+                  <div style="width:100%;">
+                    <canvas id="canvas2"></canvas>
+                  </div>
+                </div>
+              </div>
+              <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal"><!-- Place at bottom of page --></div>
+    </page>
+  </body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/add_station.js"></script>
+  <script src="js/station.js"></script>
+  <title>Pido-Dashboard</title>
+
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row ra-dir">
+      <div class="side-menu h-auto col-md-2 col-sm-2 col-lg-2 p-xs-right back-dark">
+        <div onclick="close_drawer_menu()" class="side-menu-back text-color-white d-wider-xs-none">
+          <span class="fa fa-arrow-right"></span>
+          <span class="ir-text-bold text-14">بازگشت</span>
+        </div>
+        <div class="side-menu-logo d-xs-none">
+          <img src="assets/logo_name_name.png" alt="logo">
+        </div>
+
+        <div id="data" class="side-menu-item  text-color-white ">
+          <div class="d-flex align-items-center side-menu-item-title">
+            <span class="fa fa-database text-16"></span>
+            <span class="ir-text-medium text-16">داده</span>
+            <span class="fa fa-angle-left side-menu-icon"></span>
+          </div>
+          <div class="side-menu-sub-menu">
+            <a href="operation.html">
+              <span class="fa fa-headset text-14"></span>
+              <span class="ir-text-medium text-12">اپراتورها</span>
+            </a>
+            <a href="station.html" class="active-sub-menu-item">
+              <span class="fa fa-gas-pump text-12"></span>
+              <span class="ir-text-medium text-8">جایگاه ها</span>
+            </a>
+            <a href="experts.html" class=" ">
+              <span class="fa fa-suitcase text-14"></span>
+              <span class="ir-text-medium text-12">متخصصین</span>
+            </a>
+            <a href="devices.html">
+              <span class="fa fa-box text-14"></span>
+              <span class="ir-text-medium text-12">ادوات</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+      <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12">
+        <div class="header xs-overflow-hide">
+          <div class="main-header">
+            <div onclick="open_account_menu()" class="account">
+              <span class="fa fa-angle-down account-drop-down-icon"></span>
+              <p class="user-name ir-text-medium text-14 d-xs-none">Pido Admin</p>
+              <img src="assets/download.png" alt="profile image" class="profile-image">
+            </div>
+            <div class="app-tools d-wider-xs-none">
+              <span onclick="open_drawer_menu()" class="fa fa-bars text-22"></span>
+              <img src="assets/logo_name_name.png" alt="logo image" class="logo-image">
+            </div>
+          </div>
+          <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+            <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+            <div class="account-menu-item">
+              <span class="fa fa-bell text-12"></span>
+              <span class="text-12 ir-text-medium">اعلان ها</span>
+            </div>
+            <div class="account-menu-item">
+              <span class="fa fa-cog text-12"></span>
+              <span class="text-12 ir-text-medium">تنظیمات</span>
+            </div>
+            <div class="account-menu-item">
+              <span class="fa fa-sign-out-alt text-12"></span>
+              <span class="text-12 ir-text-medium">خروج</span>
+            </div>
+            <span onclick="close_account_menu()" class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"></span>
+          </div>
+        </div>
+        <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+        <div class="data-main container">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-12 col-lg-10 col-xl-10 col-sm-12 ">
+              <div class="header-title">
+                <h2><i class="fas fa-gas-pump"></i> جایگاه‌ها</h2>
+                <p>جست و جو، ویرایش و افزودن جایگاه جدید با وارد کردن اطلاعات جایگاه و جایگاه دار</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-2 col-xl-2 col-sm-12 text-left">
+              <a href="station-add.html" class="btn btn-primary  active" role="button" aria-pressed="true">افزودن جایگاه</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">داده‌ها</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">جایگاه</li>
+                </ol>
+              </nav>
+            </div>
+
+
+          </div>
+          <div class="col-12">
+            <div class="row align-items-center alert alert-danger">
+
+              <div class="col-12 col-md-10 col-lg-10 col-xl-10 col-sm-12 ">
+                <div class="row align-items-center">
+
+                  <div class="col-1">
+                    <span>نمایش:</span>
+                  </div>
+                  <div class="col-11" id="isFilter">
+                    <span id="all">همه</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-10 col-lg-2 col-xl-2 col-sm-12 text-left">
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#filtering"><i class="fas fa-filter"></i>
+                  فیلتر جایگاه
+                </button>
+
+
+              </div>
+
+            </div>
+            <div class="modal fade" id="filtering" tabindex="-1" role="dialog" aria-labelledby="filteringLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header ra-modal-title">
+                    <h5 class="modal-title " id="filteringLabel"><i class="fas fa-filter"></i> فیلتر نتایج</h5>
+                    <p>مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند را وارد و فیلتر نموده</p>
+                  </div>
+
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="personName">نام جایگاه دار</label>
+                        <input type="text" class="form-control" name="name" id="personName" placeholder="مثال کامیار راد">
+                      </div>
+                      <div class="form-group">
+                        <label for="stationNumber">شماره تماس جایگاه</label>
+                        <input type="text" class="form-control" name="areaNumber" id="stationNumber" placeholder="مثال ۰۲۱۸۸۸۹۱۰۴۷">
+                      </div>
+                      <div class="form-group">
+                        <label for="province">استان جایگاه</label>
+                        <select class="form-control" name="province" id="province">
+                          <option value="0">همه موارد</option>
+                          <option value="1">آذربایجان شرقی</option>
+                          <option value="2">آذربایجان غربی</option>
+                          <option value="3">اردبیل</option>
+                          <option value="4">اصفهان</option>
+                          <option value="5">البرز</option>
+                          <option value="6">ایلام</option>
+                          <option value="7">بوشهر</option>
+                          <option value="8">تهران</option>
+                          <option value="9">چارمحال و بختیاری</option>
+                          <option value="10">خراسان جنوبی</option>
+                          <option value="11">خراسان رضوی</option>
+                          <option value="12">خراسان شمالی</option>
+                          <option value="13">خوزستان</option>
+                          <option value="14">زنجان</option>
+                          <option value="15">سمنان</option>
+                          <option value="16">سیستان و بلوچستان</option>
+                          <option value="17">فارس</option>
+                          <option value="18">قزوین</option>
+                          <option value="19">قم</option>
+                          <option value="20">کردستان</option>
+                          <option value="21">کرمان</option>
+                          <option value="22">کرمانشاه</option>
+                          <option value="23">کهگیولیه و بویراحمد</option>
+                          <option value="24">گلستان</option>
+                          <option value="25">گیلان</option>
+                          <option value="26">لرستان</option>
+                          <option value="27">مازندران</option>
+                          <option value="28">مرکزی</option>
+                          <option value="29">هرمزگان</option>
+                          <option value="30">همدان</option>
+                          <option value="31">یزد</option>
+
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="stationCode">کد جایگاه</label>
+                        <input type="text" class="form-control" name="stationCode" id="stationCode" placeholder="مثال ۳۳۵۴">
+                      </div>
+                      <div class="form-group">
+                        <label for="personNumber">شماره جایگاه دار</label>
+                        <input type="text" class="form-control" name="mobileNo" id="personNumber" placeholder="مثال ۰۹۱۹۰۰۰۱۱۵۵">
+                      </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" id="cancel-filter">انصراف</button>
+                    <button type="button" class="btn btn-dark" id="filter-btn" data-dismiss="modal">تایید و افزودن</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12" id="alert-wrapper">
+        <!-- //alert-->
+
+            </div>
+          </div>
+          <div class="row" id="station-list">
+            <span id="loader" style="width:60px; height: 60px;; display: block; margin:10px  auto;"><img alt="loader" src="Rolling-0.9s-200px.gif" style="width: 100%;height:100%;" height="200" width="200"/></span>
+
+
+
+          </div>
+          <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-right">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h5 class="modal-title" id="exampleModalLabel">عملیات حذف</h5>
+
+                </div>
+                <div class="modal-body">
+                  آیا میخواهید جایگاه را حذف نمایید؟
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">لغو و بازگشت</button>
+                  <button type="button" class="btn btn-danger" id="modal-delete" data-dismiss="modal">حذف جایگاه</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--added-->
+          <div class="modal fade" id="changeStatus" tabindex="-1" role="dialog" aria-labelledby="changeStatus" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-right">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h5 class="modal-title" id="changeStatusLabel">عملیات تغییر وضعیت</h5>
+
+                </div>
+                <div class="modal-body">
+                  آیا میخواهید وضعیت جایگاه را تغییر دهید ؟
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">لغو و بازگشت</button>
+                  <button type="button" class="btn btn-warning" id="modal-change" data-dismiss="modal">تغییر وضعیت </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--added -->
+        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center" id="page-ul">
+
+
+          </ul>
+        </nav>
+      </div>
+      <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+
+    </div>
+
+  </div>
+  </div>
+</body>
+
+</html>

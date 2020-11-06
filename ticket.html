@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+
+    <title>Pido-Dashboard</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/responsive.css"/>
+    <link rel="stylesheet" href="css/font-awesome/css/all.css"/>
+    <link rel="stylesheet" href="css/persian-datepicker.min.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/add_station.js"></script>
+    <script src="js/persian-date.min.js"></script>
+    <script src="js/persian-datepicker.js"></script>
+    <script src="js/ticket.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row ra-dir">
+        <div class="side-menu h-auto col-md-2   col-sm-2 col-lg-2 p-xs-right back-dark">
+
+            <div onclick="close_drawer_menu()" class="side-menu-back text-color-white d-wider-xs-none">
+                <span class="fa fa-arrow-right"></span>
+                <span class="ir-text-bold text-14">بازگشت</span>
+            </div>
+            <div class="side-menu-logo d-xs-none ">
+                <img src="assets/logo_name_name.png" alt="logo">
+            </div>
+
+            <div id="data" class="side-menu-item   text-color-white ">
+                <div class="d-flex align-items-center side-menu-item-title ">
+                    <span class="fa fa-database text-16"></span>
+                    <span class="ir-text-medium text-16">داده</span>
+                    <span class="fa fa-angle-left side-menu-icon"></span>
+                </div>
+                <div class="side-menu-sub-menu">
+                    <a href="operation.html">
+                        <span class="fa fa-headset text-14"></span>
+                        <span class="ir-text-medium text-12">اپراتورها</span>
+                    </a>
+                    <a href="station.html">
+                        <span class="fa fa-gas-pump text-12"></span>
+                        <span class="ir-text-medium text-8">جایگاه ها</span>
+                    </a>
+                    <a href="experts.html" class="active-sub-menu-item">
+                        <span class="fa fa-suitcase text-14"></span>
+                        <span class="ir-text-medium text-12">متخصصین</span>
+                    </a>
+                    <a href="devices.html">
+                        <span class="fa fa-box text-14"></span>
+                        <span class="ir-text-medium text-12">ادوات</span>
+                    </a>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+        <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12 ">
+            <div class="header xs-overflow-hide">
+                <div class="main-header">
+                    <div onclick="open_account_menu()" class="account">
+                        <span class="fa fa-angle-down account-drop-down-icon"></span>
+                        <p class="user-name ir-text-medium text-14 d-xs-none">Pido Admin</p>
+                        <img src="assets/download.png" alt="profile image" class="profile-image">
+                    </div>
+                    <div class="app-tools d-wider-xs-none">
+                        <span onclick="open_drawer_menu()" class="fa fa-bars text-22"></span>
+                        <img src="assets/logo_name_name.png" alt="logo image" class="logo-image">
+                    </div>
+                </div>
+                <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+                    <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+                    <div class="account-menu-item">
+                        <span class="fa fa-bell text-12"></span>
+                        <span class="text-12 ir-text-medium">اعلان ها</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-cog text-12"></span>
+                        <span class="text-12 ir-text-medium">تنظیمات</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-sign-out-alt text-12"></span>
+                        <span class="text-12 ir-text-medium">خروج</span>
+                    </div>
+                    <span onclick="close_account_menu()"
+                          class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"></span>
+                </div>
+            </div>
+            <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+            <div class="data-main container h-auto">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-12 col-lg-10 col-xl-10 col-sm-12 ">
+                        <div class="header-title">
+                            <h2><i class="fas fa-suitcase"></i> تیکت ها</h2>
+                            <p class="font-weight-lighter">مدیریت تیکت های ارسالی و حذف و ویرایش آنها</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">تیکت ها</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">لیست تیکت ها</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="row">
+                            <div class="col-lg-3" >
+                                <div id="all-ticket" class="ticket-status-card status-last-bg m-1 d-flex justify-content-center align-items-center flex-column" data-status="1">
+                                    <h5>500 تیکت آخر</h5>
+                                    <div class="status-active status-divider" data-level-id="0"></div>
+                                    <p class="m-0">نمایش 500 تیک  ارسالی آخر</p>
+                                    <p class="m-0">تعداد کل: <strong class="h5 font-weight-bold">3000</strong></p>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div id="ness-ticket" class="ticket-status-card status-nes-bg d-flex m-1 justify-content-center align-items-center flex-column" data-status="2">
+                                    <h5>اضطراری</h5>
+                                    <div data-level-id="1" class=" status-divider"></div>
+                                    <p class="m-0">نمایش تیکت با اولویت اضطراری</p>
+                                    <p class="m-0">تعداد: <strong class="h5 font-weight-bold">3000</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div id="important-ticket" class="ticket-status-card status-important-bg d-flex m-1 justify-content-center align-items-center flex-column" data-status="3">
+                                    <h5>مهم</h5>
+                                    <div data-level-id="2" class=" status-divider"></div>
+                                    <p class="m-0">نمایش تیکت با اولویت مهم</p>
+                                    <p class="m-0">تعداد: <strong class="h5 font-weight-bold">3000</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div id="regular-ticket" class="ticket-status-card status-regular-bg d-flex m-1 justify-content-center align-items-center flex-column" data-status="4">
+                                    <h5>معمولی</h5>
+                                    <div  data-level-id="3" class=" status-divider"></div>
+                                    <p class="m-0">نمایش تیکت با اولویت معمولی</p>
+                                    <p class="m-0"><span>تعداد </span><strong class="h5 font-weight-bold">3000</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <div class="row">
+
+                                    <div class="col-lg-12 d-flex justify-content-center justify-content-lg-start align-items-center flex-lg-row flex-column">
+                                        <span class="fa fa-layer-group"></span>
+                                        <p class="m-0  mr-2 ml-2">مراحل تیکت :</p>
+                                        <!--active-step-->
+                                        <button class="btn btn-step d-flex flex-column align-items-center justify-content-center  m-2" data-state="تخصیص یافته" data-state-id="1"><span class="spn">تخصیص نیافته</span><span>تعداد:300</span></button>
+                                        <button class="btn btn-step d-flex flex-column align-items-center justify-content-center m-2" data-state="تخصیص نیافته" data-state-id="2" ><span class="spn">تخصیص یافته</span><span>تعداد:300</span> </button>
+                                        <button class="btn  btn-step d-flex flex-column align-items-center justify-content-center m-2" data-state="شروع به کار" data-state-id="3"><span class="spn">شروع به کار</span><span>تعداد:300</span></button>
+                                        <button class="btn  btn-step d-flex flex-column align-items-center justify-content-center m-2" data-state="اتمام کار" data-state-id="4"><span class="spn">اتمام کار</span><span>تعداد:300</span></button>
+                                        <button class="btn btn-step d-flex flex-column align-items-center justify-content-center m-2" data-state="بسته شده" data-state-id="5"><span class="spn">بسته شده</span><span>تعداد:300</span></button>
+                                    </div>
+                                    <div class="col-lg-6 d-flex justify-content-center justify-content-lg-start flex-column flex-lg-row  align-items-center">
+                                        <div class="w-25 d-flex justify-content-start align-items-center">
+                                            <span class="fa fa-calendar ml-1"></span>
+                                            <p class="m-0   ">مهلت پایان :</p>
+                                        </div>
+                                        <input type="text" id="startDate" class="startDate dateInput m-2"
+                                               placeholder="از تاریخ"/>
+
+                                        <input type="text" id="endDate" class=" dateInput m-2" placeholder="تا تاریخ"/>
+
+                                    </div>
+                                    <div class="col-lg-6 d-flex justify-content-center justify-content-lg-start flex-column flex-lg-row  align-items-center">
+                                        <div class="w-25 d-flex justify-content-start align-items-center">
+                                            <span class="fa fa-calendar ml-1"></span>
+                                            <p class="m-0   ">تاریخ ایجاد :</p>
+                                        </div>
+
+                                        <div class="">                  <input type="text" id="start-create" class="startDate dateInput m-2"
+                                                                                   placeholder="از تاریخ"/>
+
+                                            <input type="text" id="end-create" class=" dateInput m-2" placeholder="تا تاریخ"/></div>
+
+                                    </div>
+
+
+                                <!--    <div class="col-lg-12 d-flex justify-content-center justify-content-lg-start flex-column flex-lg-row  align-items-center">
+                                        <span class="fa fa-calendar ml-1"></span>
+                                        <p class="m-0  ml-4"> تاریخ ایجاد :</p>
+                                        <input type="text" id="start-create" class="startDate dateInput m-2"
+                                               placeholder="از تاریخ"/>
+
+                                        <input type="text" id="end-create" class=" dateInput m-2" placeholder="تا تاریخ"/>
+
+                                    </div>-->
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-6   ">
+                                                <div class="w-100 d-flex   align-items-center h-auto">
+                                                    <div class="w-25 d-flex justify-content-start align-items-center">
+                                                        <span class="fa fa-suitcase ml-1"></span>
+                                                        <p class="m-0   ">متخصص :</p>
+                                                    </div>
+                                              <!--      <select class="form-control filter-select form-select select w-75 " id="expert-ticket">
+                                                        <option value="-1" selected="selected">همه موارد</option>
+
+                                                    </select>-->
+                                                    <select class="selectpicker my-select form-control  filter-select form-select select w-75  " id="expert-ticket"
+                                                            data-live-search="true">
+                                                        <option class="" value="-1">همه موارد</option>
+
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6   ">
+                                                <div class="w-100 d-flex   align-items-center h-auto">
+                                                    <div class="w-25 d-flex justify-content-start align-items-center">
+                                                        <span class="fas fa-gas-pump ml-1"></span>
+                                                        <p class="m-0">جایگاه :</p>
+                                                    </div>
+                                                    <select class="selectpicker my-select form-control  filter-select form-select select w-75  " id="station_ticket"
+                                                            data-live-search="true">
+                                                        <option class="" value="0">همه موارد</option>
+                                                     
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6   ">
+                                                <div class="w-100 d-flex   align-items-center h-auto">
+                                                    <div class="w-25 d-flex justify-content-start align-items-center">
+                                                        <span class="fa fa-box ml-1"></span>
+                                                        <p class="m-0   ">دستگاه:</p>
+                                                    </div>
+                                     <!--               <select class="form-control form-select select w-75 filter-select" id="device-ticket">
+                                                        <option value="0" selected="selected">همه موارد</option>
+
+
+                                                    </select>-->
+                                                    <select class="selectpicker my-select form-control  filter-select form-select select w-75  " id="device-ticket"
+                                                            data-live-search="true">
+                                                        <option class="" value="0">همه موارد</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6   ">
+                                                <div class="w-100 d-flex   align-items-center h-auto">
+                                                    <div class="w-25 d-flex justify-content-start align-items-center">
+                                                        <span class="fa fa-tag ml-1"></span>
+                                                        <p class="m-0">رسته:</p>
+                                                    </div>
+                                          <!--          <select class="form-control form-select select w-75 filter-select" id="category_ticket">
+                                                        <option value="0" selected="selected">همه موارد</option>
+                                                        <option value="1">نرم افزاری</option>
+                                                        <option value="2">سخت افزاری</option>
+                                                        <option value="3">جانبی</option>
+                                                    </select>-->
+                                                    <select class="selectpicker my-select form-control  filter-select form-select select w-75  " id="category_ticket"
+                                                            data-live-search="true">
+                                                        <option value="0" selected="selected">همه موارد</option>
+                                                        <option value="1">نرم افزاری</option>
+                                                        <option value="2">سخت افزاری</option>
+                                                        <option value="3">جانبی</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12 mt-3 pr-0 d-flex justify-content-center justify-content-lg-start flex-column flex-lg-row  align-items-center">
+                                        <div class="w-100 d-flex  pl-3  align-items-center h-auto">
+                                            <div class=" d-flex  justify-content-start align-items-center" style="width: 190px;" >
+                                                <span class="fa fa-barcode ml-1 mr-3"></span>
+                                                <p class="m-0   ml-2 border-0">کد ثبت:</p>
+                                            </div>
+                                            <input type="text" class=" rounded-right form-control " id="ticket-id">
+                                            <button class="btn rounded-left btn-primary search-btn " id="search-id">جستجو</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                    </div>
+
+                </div>
+                <div class="col-12">
+                    <div class="row align-items-center alert alert-danger">
+                        <div class="col-12 col-md-10 col-lg-10 col-xl-10 col-sm-12 ">
+                            <div class="row align-items-center">
+
+                                <div class="col-1">
+                                    <span>نمایش:</span>
+                                </div>
+                                <div class=" col-10   " id="isFilter">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 col-lg-2 col-xl-2 col-sm-12 text-left">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12" id="alert-wrapper">
+                    </div>
+                </div>
+                <div class="row" id="ticket-list">
+                                  <span id="loader"
+                                        style="width:60px; height: 60px;; display: block; margin:10px  auto;"><img
+                                          alt="loader" src="Rolling-0.9s-200px.gif" style="width: 100%;height:100%;"
+                                          height="200"
+                                          width="200"/></span>
+                </div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-right">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 class="modal-title" id="exampleModalLabel">عملیات حذف</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                آیا میخواهید تیکت را حذف نمایید؟
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">لغو
+                                </button>
+                                <button type="button" id="modal-delete" class="btn btn-danger" data-dismiss="modal">حذف
+                                    تیکت
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog " style="max-width:800px;" role="document">
+                        <div class="modal-content w-100">
+                            <div class="modal-header text-right">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                            </div>
+                            <div class="modal-body w-100">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--added-->
+                <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="info"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-right">
+
+                                <h5 class="modal-title float-right" id="changeStatusLabel">اطلاعات بیشتر</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <div><h6>توضیحات:</h6></div>
+                                    <p class="ticket-description w-100">
+                                    </p>
+                                </div>
+                                <div>
+                                    <div><h6>توضیحات اپراتور:</h6></div>
+                                    <p class="operator-ex ">
+
+                                    </p>
+                                </div>
+                                <div>
+                                    <div><h6> راه حل:</h6></div>
+                                    <p class="solution">
+
+                                    </p>
+                                </div>
+                                <div class="">
+                                    <div class="w-100 " style="height:90px;">
+                                        <div class="d-flex mt-1 w-100 align-items-center justify-content-start">
+                                <span class="card-status d-flex align-items-center float-right">
+                                <span class="fas fa-box d-block  ml-2"></span>
+                                <span id="device-name" class="d-block float-right text-dark">دستگاه:</span>
+
+                            </span>
+                                            <span class="d-block float-left">
+                            <span class="card-status d-flex align-items-center mr-3 float-left">
+                                <span class="fas  float-right d-block fa-layer-group ml-2"></span>
+                                <span id="category_name" class="d-block float-right ">رسته:</span>
+                            </span>
+                                 </span>
+                                            <span class="d-block float-left">
+                                        <span class="card-status d-flex align-items-center mr-3 float-left">
+                                <span class="fas  float-right  d-block fa-layer-group ml-2"></span>
+                                <span id="station_name" class="d-block float-right ">جایگاه:</span>
+                            </span>
+                                 </span>
+
+                                        </div>
+                                        <div class="w-100">
+                                   <span class=" float-right d-block mt-2">
+                                        <span class="card-status d-flex align-items-center  ">
+                                <span class="fas  float-right d-block fa-clock ml-2"></span>
+                                <span id="deadline" class="d-block float-right " style="direction: ltr">مهلت پایان:</span>
+                            </span>
+                                 </span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="img-wrapper w-100" id="img-wrapper">
+                                    <h6>تصویر ضمیمه :</h6>
+
+                                </div>
+                                <h6>لیست تسک ها</h6>
+                                <div class="w-100 task-wrapper" id="task-wrapper">
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark float-left" data-dismiss="modal">بستن
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--added -->
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center" id="page-ul">
+
+                </ul>
+            </nav>
+
+        </div>
+        <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+
+    </div>
+
+</div>
+</div>
+</body>
+
+</html>

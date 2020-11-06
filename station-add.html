@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/responsive.css"/>
+    <link rel="stylesheet" href="css/font-awesome/css/all.css"/>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/add_station.js"></script>
+    <title>Pido-Dashboard</title>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row ra-dir">
+        <div class="side-menu h-auto col-md-2 col-sm-2 col-lg-2 p-xs-right back-dark">
+            <div onclick="close_drawer_menu()" class="side-menu-back text-color-white d-wider-xs-none">
+                <span class="fa fa-arrow-right"></span>
+                <span class="ir-text-bold text-14">بازگشت</span>
+            </div>
+            <div class="side-menu-logo d-xs-none">
+                <img src="assets/logo_name_name.png" alt="logo">
+            </div>
+
+            <div id="data" class="side-menu-item  text-color-white ">
+                <div class="d-flex align-items-center side-menu-item-title">
+                    <span class="fa fa-database text-16"></span>
+                    <span class="ir-text-medium text-16">داده</span>
+                    <span class="fa fa-angle-left side-menu-icon"></span>
+                </div>
+                <div class="side-menu-sub-menu">
+                    <a href="operation.html">
+                        <span class="fa fa-headset text-14"></span>
+                        <span class="ir-text-medium text-12">اپراتورها</span>
+                    </a>
+                    <a href="station.html" class="active-sub-menu-item">
+                        <span class="fa fa-gas-pump text-12"></span>
+                        <span class="ir-text-medium text-8">جایگاه ها</span>
+                    </a>
+                    <a href="experts.html" class=" ">
+                        <span class="fa fa-suitcase text-14"></span>
+                        <span class="ir-text-medium text-12">متخصصین</span>
+                    </a>
+                    <a href="devices.html">
+                        <span class="fa fa-box text-14"></span>
+                        <span class="ir-text-medium text-12">ادوات</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+        <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12">
+            <div class="header xs-overflow-hide">
+                <div class="main-header">
+                    <div onclick="open_account_menu()" class="account">
+                        <span class="fa fa-angle-down account-drop-down-icon"></span>
+                        <p class="user-name ir-text-medium text-14 d-xs-none">Pido Admin</p>
+                        <img src="assets/download.png" alt="profile image" class="profile-image">
+                    </div>
+                    <div class="app-tools d-wider-xs-none">
+                        <span onclick="open_drawer_menu()" class="fa fa-bars text-22"></span>
+                        <img src="assets/logo_name_name.png" alt="logo image" class="logo-image">
+                    </div>
+                </div>
+                <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+                    <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+                    <div class="account-menu-item">
+                        <span class="fa fa-bell text-12"></span>
+                        <span class="text-12 ir-text-medium">اعلان ها</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-cog text-12"></span>
+                        <span class="text-12 ir-text-medium">تنظیمات</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-sign-out-alt text-12"></span>
+                        <span class="text-12 ir-text-medium">خروج</span>
+                    </div>
+                    <span onclick="close_account_menu()"
+                          class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"></span>
+                </div>
+            </div>
+            <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+            <div class="data-main container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-12 col-lg-10 col-xl-10 col-sm-12 ">
+                        <div class="header-title">
+                            <h2><i class="fas fa-gas-pump"></i> افزودن جایگاه</h2>
+                            <p>اطلاعات جایگاه را به ترتیب وارد کرده و در نهایت اطلاعات را تایید کنید. طول و عرض
+                                جغرافیایی را میتوانید از نقشه های آنلاین بدست آورید.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-2 col-xl-2 col-sm-12 text-left">
+                        <!-- <a href="#" class="btn btn-primary  active" role="button" aria-pressed="true">افزودن اپراتور</a> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">داده‌ها</a></li>
+                                <li class="breadcrumb-item"><a href="#">جایگاه ها</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">افزودن</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+
+                </div>
+
+                <div class="col-12">
+                    <div id="add-oprator-page" class="row">
+
+                        <div class="col-12 add-data-form">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 content-form-body">
+                                <ul class="alert-danger rounded mr-3 error"></ul>
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> نام کاربری</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input name-input" name="username"
+                                           placeholder="مثلا hossein323" type="text"/>
+                                </div>
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold">رمز عبور</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input name-input" name="password"
+                                           placeholder="مثلا m32425" type="password"/>
+                                </div>
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold">رمز عبور</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input name-input"
+                                           name="password2" placeholder="مثلا m32425." type="password"/>
+                                </div>
+
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> نام جایگاه دار</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input name-input" name="name"
+                                           placeholder="مثلا محمد محمدی..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> نام جایگاه </p>
+                                    <input class="text-14 ir-text-medium add-data-form-input name-input" name="stationName"
+                                           placeholder="مثلا جایگاه محمدی..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> شماره تماس جایگاه دار</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input phone-input"
+                                           name="mobileNo" placeholder="مثلا  ۰۹۱۲۱۱۱۱۱۱۱ ..." type="text"/>
+                                </div>
+
+                                <!--------------drop down------------------>
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> استان جایگاه</p>
+                                    <select class="form-control select " id="select" >
+                                        <option value="1">آذربایجان شرقی</option>
+                                        <option value="2">آذربایجان غربی</option>
+                                        <option value="3">اردبیل</option>
+                                        <option value="4">اصفهان</option>
+                                        <option value="5">البرز</option>
+                                        <option value="6">ایلام</option>
+                                        <option value="7">بوشهر</option>
+                                        <option value="8">تهران</option>
+                                        <option value="9">چارمحال و بختیاری</option>
+                                        <option value="10">خراسان جنوبی</option>
+                                        <option value="11">خراسان رضوی</option>
+                                        <option value="12">خراسان شمالی</option>
+                                        <option value="13">خوزستان</option>
+                                        <option value="14">زنجان</option>
+                                        <option value="15">سمنان</option>
+                                        <option value="16">سیستان و بلوچستان</option>
+                                        <option value="17">فارس</option>
+                                        <option value="18">قزوین</option>
+                                        <option value="19">قم</option>
+                                        <option value="20">کردستان</option>
+                                        <option value="21">کرمان</option>
+                                        <option value="22">کرمانشاه</option>
+                                        <option value="23">کهگیولیه و بویراحمد</option>
+                                        <option value="24">گلستان</option>
+                                        <option value="25">گیلان</option>
+                                        <option value="26">لرستان</option>
+                                        <option value="27">مازندران</option>
+                                        <option value="28">مرکزی</option>
+                                        <option value="29">هرمزگان</option>
+                                        <option value="30">همدان</option>
+                                        <option value="31">یزد</option>
+                                    </select>
+                                </div>
+                                <!--------------drop down------------------>
+
+                                <!--------------drop down------------------>
+                                <div class="add-data-form-item ">
+                                    <p class="text-14 ir-text-bold"> وضعیت جایگاه</p>
+                                    <select class="form-control select" id="activation-select">
+                                        <option value="1" selected>فعال</option>
+                                        <option value="0">غیرفعال</option>
+
+                                    </select>
+                                </div>
+                                <!--------------drop down------------------>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> کد جایگاه</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input code-input"
+                                           name="stationCode" placeholder="مثلا ۲۵۶۴۱ ..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> کد منطقه </p>
+                                    <input class="text-14 ir-text-medium add-data-form-input static-phone-input"
+                                           name="areaNumber" placeholder="مثلا 323 ..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> شماره  جایگاه</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input static-phone-input"
+                                           name="stationPhone" placeholder="مثلا ۰۲۱۸۸۸۸۸۸۸ ..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold"> عرض جغرافیایی</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input long-input" name="lat"
+                                           placeholder="مثلا ۵۹۶۶۷۸۹۵ ..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold">طول جغرافیایی</p>
+                                    <input class="text-14 ir-text-medium add-data-form-input lat-input" name="long"
+                                           placeholder="مثلا ۳۹۵۵۶۴۸ ..." type="text"/>
+                                </div>
+
+                                <div class="add-data-form-item">
+                                    <p class="text-14 ir-text-bold">آدرس جایگاه</p>
+                                    <textarea class="text-14 ir-text-medium add-data-form-input address-input"
+                                              name="stationAddress"
+
+                                              placeholder="مثلا تهران، ستارخان، جلدی، نبش تکبیری ..." type="text"
+                                              rows="5" style="resize: none"></textarea>
+                                </div>
+                                <div class="add-data-form-item text-left">
+                                    <button type="button" class="btn btn-outline-dark">لغو و بازگشت</button>
+                                    <button type="button" class="btn btn-dark" id="add-station">تایید و افزودن</button>
+
+
+                                </div>
+                                <div class="col-12 mt-2" id="add-alert"></div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none content-form-image">
+                                <img src="assets/some.svg">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+
+    </div>
+
+</div>
+</div>
+</body>
+
+</html>

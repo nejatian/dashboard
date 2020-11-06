@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="css/persian-datepicker.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-table.css" />
+    <link rel="stylesheet" href="css/bootstrap-table.min.css" />
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/add_station.js"></script>
+    <script src="js/persian-date.min.js"></script>
+    <script src="js/persian-datepicker.js"></script>
+    <script src="js/add_station.js"></script>
+    <script src="js/dist/Chart.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+   <script src="js/html2canvas.js"></script>
+  <script src="js/html2pdf.bundle.js"></script>
+  <script src="js/FileSaver.min.js"></script>
+    <script src="js/xlsx.core.min.js"></script>
+    <script src="js/tableExport.min.js"></script>
+    <title>Pido-Dashboard</title>
+    <script src="js/script.js"></script>
+    
+  </head>
+
+  <body>
+      <page backtop="10mm" backbottom="20mm" backleft="20mm" backright="20mm" style="font-family: IRANSans" dir="rtl">
+
+    <div class="container-fluid">
+      <div class="row ra-dir">
+        <div
+          class="side-menu h-auto col-md-2 col-sm-2 col-lg-2 p-xs-right back-dark"
+        >
+          <div
+            onclick="close_drawer_menu()"
+            class="side-menu-back text-color-white d-wider-xs-none"
+          >
+            <span class="fa fa-arrow-right" data-html2canvas-ignore></span>
+            <span class="ir-text-bold text-14" data-html2canvas-ignore>بازگشت</span>
+          </div>
+          <div class="side-menu-logo d-xs-none">
+            <img src="assets/logo_name_name.png" alt="logo" />
+          </div>
+
+          <div id="data" class="side-menu-item  text-color-white ">
+            <div class="d-flex align-items-center side-menu-item-title">
+              <span class="fa fa-database text-16" ></span>
+              <span class="ir-text-medium text-16">داده</span>
+              <span class="fa fa-angle-left side-menu-icon"></span>
+            </div>
+            <div class="side-menu-sub-menu">
+              <a href="operation.html">
+                <span class="fa fa-headset text-14"></span>
+                <span class="ir-text-medium text-12">اپراتورها</span>
+              </a>
+              <a href="station.html">
+                <span class="fa fa-gas-pump text-12"></span>
+                <span class="ir-text-medium text-8">جایگاه ها</span>
+              </a>
+              <a href="experts.html" class="active-sub-menu-item">
+                <span class="fa fa-suitcase text-14"></span>
+                <span class="ir-text-medium text-12">متخصصین</span>
+              </a>
+              <a href="devices.html">
+                <span class="fa fa-box text-14"></span>
+                <span class="ir-text-medium text-12">ادوات</span>
+              </a>
+            </div>
+          </div>
+          <div id="data" class="side-menu-item  text-color-white ">
+            <div class="d-flex align-items-center side-menu-item-title">
+              <span class="fas fa-file-contract text-16"></span>
+              <span class="ir-text-medium text-16">گزارش ها</span>
+              <span class="fa fa-angle-left side-menu-icon"></span>
+            </div>
+            <div class="side-menu-sub-menu">
+              <a href="experts-Report.html" class="active-sub-menu-item">
+                <span class="fas fa-suitcase text-14"></span>
+                <span class="ir-text-medium text-12">متخصصین</span>
+              </a>
+              <a href="ticket-Report.html">
+                <span class="fas fa-ticket-alt text-12"></span>
+                <span class="ir-text-medium text-8">تیکت ها</span>
+              </a>
+              <a href="level-Reports.html">
+                <span class="fas fa-layer-group text-14"></span>
+                <span class="ir-text-medium text-12">سطح ها</span>
+              </a>
+              <!-- <a href="devices.html">
+                <span class="fa fa-box text-14"></span>
+                <span class="ir-text-medium text-12">ادوات</span>
+              </a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+        <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12">
+          <div class="header xs-overflow-hide">
+            <div class="main-header">
+              <div onclick="open_account_menu()" class="account">
+                <span class="fa fa-angle-down account-drop-down-icon"></span>
+                <p class="user-name ir-text-medium text-14 d-xs-none">
+                  Pido Admin
+                </p>
+                <img
+                  src="assets/download.png"
+                  alt="profile image"
+                  class="profile-image"
+                />
+              </div>
+              <div class="app-tools d-wider-xs-none">
+                <span
+                  onclick="open_drawer_menu()"
+                  class="fa fa-bars text-22"
+                ></span>
+                <img
+                  src="assets/logo_name_name.png"
+                  alt="logo image"
+                  class="logo-image"
+                />
+              </div>
+            </div>
+            <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+              <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+              <div class="account-menu-item">
+                <span class="fa fa-bell text-12"></span>
+                <span class="text-12 ir-text-medium">اعلان ها</span>
+              </div>
+              <div class="account-menu-item">
+                <span class="fa fa-cog text-12"></span>
+                <span class="text-12 ir-text-medium">تنظیمات</span>
+              </div>
+              <div class="account-menu-item">
+                <span class="fa fa-sign-out-alt text-12"></span>
+                <span class="text-12 ir-text-medium">خروج</span>
+              </div>
+              <span
+                onclick="close_account_menu()"
+                class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"
+              ></span>
+            </div>
+          </div>
+          <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+          <div class="data-main container h-auto" id="root" dir="rtl" style="font-family: IRANSans">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-12 col-lg-10 col-xl-10 col-sm-12 ">
+                <div class="header-title">
+                  <h2><i class="fas fa-suitcase"></i> متخصصین</h2>
+                 
+                  <p>
+                    در این بخش شما میتوانید گزارشات دلخواه خود را از متخصصین بر
+                    اساس پارامترهای مشخص شده دریافت نمایید.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-12 col-lg-2 col-xl-2 col-sm-12 text-left"
+              >
+              <span title="دریافت PDF" id="ToPDF" data-html2canvas-ignore style="cursor: pointer;"><i class="fas fa-file-pdf fa-3x" style="cursor: pointer;"></i></span>
+            </div>
+            </div>
+            <div class="row" data-html2canvas-ignore>
+              <div class="col-12 ">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">گزارش ها</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      متخصصین
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!-- Reports Title -->
+           
+            <!-- <button onclick="test()">Generate PDF</button> -->
+            <div class="row align-items-center box-report-tables">
+              <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                <div class="report-header-title">
+                  <h2>بر اساس تعداد تیکت اختصاص یافته</h2>
+                  <p>لیست متخصصین مرتب شده بر اساس تعداد تیکت اختصاص یافته</p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-4 col-lg-4 col-xl-4 col-sm-12 text-left "
+              >
+                <div class="sorting-links">
+                  <span id="loadingImage" style="display: none" data-html2canvas-ignore><i class="fas fa-spinner"></i></span>
+                  <span id="expertByTicket" style="cursor: pointer;" data-html2canvas-ignore>
+                    <i class="fas fa-file-download"></i> دریافت اطلاعات</span
+                  >
+                  <span id="expertByTicketRef" style="cursor: pointer;" data-html2canvas-ignore>
+                    <i class="fas fa-sync"></i> به روزرسانی</span
+                  >
+                  <span
+                      id="expertByTicketXls"
+                      data-html2canvas-ignore
+                      style="cursor: pointer; display: none"
+                      
+                      ><i class="fas fa-file-excel"></i
+                    > اکسل </span>
+                </div>
+              </div>
+
+              <div class="col-12" id="alert-wrapper">
+                <table
+                  id="expertByTicketTable"
+                  class="table text-center table-sm report-tables"
+                >
+                  <thead class="thead-light">
+                    <tr>
+                      <th data-field="count" class="text-center">
+                        تعداد تیکت
+                      </th>
+                      <th data-field="expertName" class="text-center">
+                        نام متخصص
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <p id="expertbyticketp">
+                  مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند
+                  را وارد و فیلتر نموده
+                </p>
+
+                <!-- experts -->
+              </div>
+            </div>
+            <div class="row align-items-center box-report-tables">
+              <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                <div class="report-header-title">
+                  <h2>بر اساس بیشترین و کمترین امتیاز</h2>
+                  <p>نمایش متخصصین دارای بیشترین و کمترین امتیاز</p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-4 col-lg-4 col-xl-4 col-sm-12 text-left "
+              >
+                <div class="sorting-links" >
+                    <span id="arrowUps" style="cursor: pointer;" data-html2canvas-ignore>
+                        <i class="fas fa-file-download"></i> دریافت اطلاعات</span>
+                        
+                        <span id="arrowDowns" style="cursor: pointer;" data-html2canvas-ignore>
+                            <i class="fas fa-sync"></i> به روزرسانی</span>
+
+                            <span
+                            id="maxOrminRateXls"
+                            data-html2canvas-ignore
+                            style="cursor: pointer; display: none"
+                            
+                            ><i class="fas fa-file-excel"></i
+                          > اکسل </span>
+                </div>
+              </div>
+
+              <div class="col-12" id="alert-wrapper">
+                <table
+                  id="maxOrminRateTable"
+                  class="table text-center table-sm report-tables"
+                >
+                  <thead class="thead-light">
+                    <tr>
+                      <th data-field="Report" class="text-center">گزارش</th>
+                      <th data-field="expertName" class="text-center">
+                        نام متخصص
+                      </th>
+                      <th data-field="rate" class="text-center">
+                        امتیاز
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <p id="maxorminp">
+                  مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند
+                  را وارد و فیلتر نموده
+                </p>
+
+                <!-- experts -->
+              </div>
+            </div>
+            <div class="row align-items-center box-report-tables">
+              <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                <div class="report-header-title">
+                  <h2>بر اساس امتیاز متخصص</h2>
+                  <p>
+                    مرتب شده از بیشترین به کمترین امتیاز. لطفا رسته را ابتدا
+                    انتخاب نمایید.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-4 col-lg-4 col-xl-4 col-sm-12 text-left "
+              >
+                <div class="sorting-links">
+                  <span id="arrowUpRate" style="cursor: pointer;" data-html2canvas-ignore>
+                    <i class="fas fa-arrow-up"></i> بیشترین
+                  </span>
+                  <span id="arrowDownRate" style="cursor: pointer;" data-html2canvas-ignore>
+                    <i class="fas fa-arrow-down"></i> کمترین
+                  </span>
+                  <span
+                            id="expertByRateXls"
+                            data-html2canvas-ignore
+                            style="cursor: pointer; display: none"
+                            
+                            ><i class="fas fa-file-excel"></i
+                          > اکسل </span>
+                </div>
+              </div>
+
+              <div class="col-12 report-tables">
+                <table
+                  id="expertByRateTable"
+                  class="table text-center table-sm"
+                >
+                  <thead class="thead-light">
+                    <tr>
+                      <th data-field="name" class="text-center">
+                        نام متخصص
+                      </th>
+                      <th data-field="activation_state" class="text-center">
+                        وضعیت فعال بودن یا نبودن
+                      </th>
+                      <th data-field="rate" class="text-center">
+                        امتیاز
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <p id="expertbyratep">
+                  مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند
+                  را وارد و فیلتر نموده
+                </p>
+              </div>
+            </div>
+            <div class="row align-items-center box-report-tables">
+              <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                <div class="report-header-title">
+                  <h2>بر اساس تعداد تیکت های هر دستگاه</h2>
+                  <p>
+                    گزارش تعداد تیکت های هر دستگاه که به متخصص ارجاع شده است.
+                    برای شروع شناسه متخصص را وارد نمایید.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <form>
+                  <div class="row align-items-end">
+                 
+
+                    <div class="col-2">
+                      رسته متخصص
+                    </div>
+                    <div class="col-10">
+                      <select
+                        class="selectpicker my-select form-control  filter-select form-select select w-50  "
+                        id="categoryCombo"
+                        data-live-search="true"
+                      >
+                        <option class="" value="-1">همه موارد</option>
+                        <option class="" value="1">نرم افزاری</option>
+                        <option class="" value="2">سخت افزاری</option>
+                        <option class="" value="3"> فعالیت جانبی</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      نام متخصص
+                    </div>
+                    <div class="col-10">
+                      <select
+                        class="selectpicker my-select form-control  filter-select form-select select w-50"
+                        id="expertsCombo"
+                        data-live-search="true"
+                      >
+                        <option class="" value="-1">همه موارد</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-2 col-lg-2 col-xl-2 col-sm-12">
+                      <button
+                        type="button"
+                        class="btn btn-dark"
+                        id="filter-btn"
+                        data-dismiss="modal"
+                        disabled="true"
+                        data-html2canvas-ignore
+                      >
+                        دریافت گزارش
+                      </button>
+                    </div>
+                    <div class="sorting-links">
+                 
+                        <span
+                                  id="ticketPerDeviceXls"
+                                  data-html2canvas-ignore
+                                  style="cursor: pointer; display: none"
+                                  
+                                  ><i class="fas fa-file-excel"></i
+                                > اکسل </span>
+                      </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-12" id="alert-wrapper">
+                <table
+                  id="ticketPerDevice"
+                  class="table text-center table-sm report-tables"
+                >
+                  <thead class="thead-light">
+                    <tr>
+                      <th data-field="ticket_number" class="text-center">
+                        تعداد تیکت
+                      </th>
+                      <th data-field="device_name" class="text-center">
+                        نام دستگاه
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <p id="ticketPerDevicep">
+                  مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند
+                  را وارد و فیلتر نموده
+                </p>
+
+                <!-- experts -->
+              </div>
+            </div>
+            <div class="row align-items-center box-report-tables">
+              <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12 ">
+                <div class="report-header-title">
+                  <h2>بر اساس تعداد تیکت ها از هر وضعیت</h2>
+                  <p>
+                    گزارش تعداد تیکت هااز هر وضعیت با استفاده از شناسه متخصص.
+                    برای شروع شناسه متخصص را وارد نمایید.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-4 col-lg-4 col-xl-4 col-sm-12 text-left "
+              >
+           
+              </div>
+              <div class="col-12">
+                <form>
+                  <div class="row align-items-end">
+                    <div class="col-2">
+                      رسته متخصص
+                    </div>
+                    <div class="col-10">
+                      <select
+                        class="selectpicker my-select form-control  filter-select form-select select w-50  "
+                        id="categorysCombo"
+                        data-live-search="true"
+                      >
+                        <option class="" value="-1">همه موارد</option>
+                        <option class="" value="1">نرم افزاری</option>
+                        <option class="" value="2">سخت افزاری</option>
+                        <option class="" value="3"> فعالیت جانبی</option>
+                      </select>
+                    </div>
+
+                  
+                    <div class="col-2">
+                      نام متخصص
+                    </div>
+                    <div class="col-10">
+                      <select
+                        class="selectpicker my-select form-control  filter-select form-select select w-50"
+                        id="expertCombo"
+                        data-live-search="true"
+                      >
+                        <option class="" value="-1">همه موارد</option>
+                      </select>
+                    </div>
+
+                   
+
+                    <div class="col-12 col-md-2 col-lg-2 col-xl-2 col-sm-12">
+                      <button
+                        type="button"
+                        class="btn btn-dark"
+                        id="filter-btn-state"
+                        data-dismiss="modal"
+                        disabled="true"
+                        data-html2canvas-ignore
+                      >
+                        دریافت گزارش
+                      </button>
+                    </div>
+                    <div class="sorting-links">
+                 
+                        <span
+                                  id="statePerTicketXls"
+                                  data-html2canvas-ignore
+                                  style="cursor: pointer; display: none"
+                                  
+                                  ><i class="fas fa-file-excel"></i
+                                > اکسل </span>
+                      </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-12">
+                <table
+                  id="statePerTicket"
+                  class="table text-center table-sm report-tables"
+                >
+                  <thead class="thead-light">
+                    <tr>
+                      <th data-field="ticket_number" class="text-center">
+                        تعداد تیکت
+                      </th>
+                      <th data-field="state_id" class="text-center">وضعیت</th>
+                    </tr>
+                  </thead>
+                </table>
+                <p id="statep">
+                  مقادیر و عنوان هایی که میخواهید نتایج بر حسب آن ها فیلتر شوند
+                  را وارد و فیلتر نموده
+                </p>
+              </div>
+            </div>
+            
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center" id="page-ul"></ul>
+          </nav>
+        </div>
+        <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+      </div>
+    </div>
+    <div class="modal"><!-- Place at bottom of page --></div>
+      </page>
+  </body>
+</html>

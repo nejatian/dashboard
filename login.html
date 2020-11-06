@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="css/style_guide.css" />
+        <link rel="stylesheet" href="css/login.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+            crossorigin="anonymous"
+        />
+
+        <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+        <script src="js/login.js"></script>
+        <title>Pido</title>
+    </head>
+    <body>
+        <div class="landing">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="275" height="119" viewBox="0 0 275 119">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      stroke: #970004;
+                      stroke-width: 2px;
+                      fill: none;
+                      fill-rule: evenodd;
+                    }
+                  </style>
+                </defs>
+                <path d="M18.632,112.000 L5.000,112.000 C5.000,112.000 5.000,68.460 5.000,36.072 C5.000,3.685 72.725,-19.050 79.000,43.794 C79.216,56.877 68.398,92.053 23.825,75.323 C23.825,70.390 23.825,66.100 23.825,61.167 C65.585,81.972 66.234,42.507 66.018,39.933 C61.041,4.972 18.848,15.267 18.632,38.646 C18.632,46.796 18.632,112.000 18.632,112.000 Z" class="cls-1"/>
+                <path d="M95.948,13.041 C85.615,13.234 84.558,30.242 97.534,30.000 C107.531,29.034 107.819,13.089 96.381,13.041 C89.844,12.944 95.900,13.041 95.948,13.041 Z" class="cls-1"/>
+                <path d="M169.835,56.261 C148.907,41.266 127.099,50.528 126.878,75.445 C126.658,111.168 174.241,106.317 175.122,76.768 C175.122,50.969 175.783,4.000 175.783,4.000 L189.000,4.000 C189.000,4.000 189.000,47.220 189.000,79.414 C185.916,124.619 118.287,127.265 113.000,76.768 C113.661,27.815 160.803,34.871 169.835,41.707 C170.055,47.661 169.835,50.307 169.835,56.261 Z" class="cls-1"/>
+                <path d="M232.442,50.115 C203.266,50.661 200.280,98.682 236.920,98.000 C265.146,95.272 265.960,50.252 233.663,50.115 C215.208,49.842 232.306,50.115 232.442,50.115 Z" class="cls-1"/>
+                <path d="M90.000,106.441 L90.000,38.000 L102.350,38.000 L103.000,109.000 L91.300,109.000 " class="cls-1"/>
+                <path d="M231.597,37.177 C186.618,38.019 182.016,112.052 238.501,111.000 C282.016,106.794 283.271,37.388 233.480,37.177 C205.028,36.757 231.388,37.177 231.597,37.177 Z" class="cls-1"/>
+              </svg>
+        </div>
+        <div class="col-12 row parent">
+            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none left">
+                <div class="left-filter">
+                    <div
+                        class="text-container text-color-white"
+                        style="text-align: center"
+                    >
+                        <p class="ir-text-bold text-36">
+                            ورود به حساب کاربری
+                        </p>
+                        <p class="ir-text-bold text-20 header-text-2">
+                            سیستم تیکتینگ
+                        </p>
+                        <P class="ir-text text-12 body-text-3">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                            صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                            و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
+                            لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                            باشد
+                        </P>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 right">
+                <div class="col-md-8 col-sm-8 col-lg-8 col-xs-12 login-form">
+                    <div class="logo-space"></div>
+                    <div class="input-container">
+                        <span class="fa fa-user text-18"></span>
+                        <input
+                            class="input-field text-16 ir-text-medium"
+                            type="text"
+                            placeholder="نام کاربری"
+                        />
+                    </div>
+                    <div class="input-container">
+                        <span class="fa fa-lock text-18"></span>
+                        <input
+                            class="input-field text-16 ir-text-medium"
+                            type="password"
+                            placeholder="رمز عبور"
+                        />
+                    </div>
+
+                    <div class="rememberme">
+                        <input
+                            type="checkbox"
+                            id="check-box"
+                            name="fruit-1"
+                            value="Apple"
+                        />
+                        <label for="check-box" class="text-14 ir-text-bold"
+                            >مرا به خاطر بسپار</label
+                        >
+                    </div>
+                    <div class="submit-container">
+                        <input
+                            type="submit"
+                            class="text-20 ir-text-medium submit-button text-color-white"
+                            value="ورود"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

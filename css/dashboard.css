@@ -1,0 +1,185 @@
+.all {
+    background-color: #f8f8f8;
+    position: relative;
+    direction: rtl;
+    padding: 0;
+}
+.side-menu{
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.side-menu-back{
+    margin-top: 24px;
+    margin-right: 12px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+}
+.side-menu-back .ir-text-bold{
+    margin-right: 12px;
+}
+.side-menu-item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+.side-menu-item .ir-text-medium{
+    margin-right: 12px;
+}
+.side-menu-indecator{
+    width: 4px;
+    border-radius: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+}
+.side-menu-indecator-active{
+    height: 20px;
+}
+.side-menu-logo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side-menu-logo img {
+    width: 100%;
+    height: auto;
+}
+.right-part{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    background-color: #f0f0f0;
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: height 0.3s;
+}
+.main-header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.app-tools{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 24px;
+}
+.logo-image{
+    height: 30px;
+    width: auto;
+    margin-right: 12px;
+}
+.close-account-menu {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.account-menu p{
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+.account-menu-item{
+    margin-top: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+.account-menu-item .fa{
+    margin-left: 12px;
+}
+@media only screen and (max-width: 768px) {
+    .p-xs-right {
+        position: fixed;
+        top: 0;
+        width: 70%;
+        left: 100%;
+        z-index: 20;
+        transition: left 0.5s;
+        transition-timing-function: ease-out;
+    }
+    .xs-overflow-hide{
+        overflow: hidden;
+    }
+    .account{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        left: 24px;
+    }
+    .account-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .account-drop-down-icon{
+        margin-left: 12px;
+    }
+    .profile-image {
+        widows: 36px;
+        height: 36px;
+        border-radius: 18px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .p-xs-right {
+        transition: left 2s;
+        transition-timing-function: ease-out;
+    }
+    .account{
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        left: 24px;
+    }
+    .account-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        z-index: 20;
+        left: 12px;
+        margin-top: 12px;
+        background-color: #f0f0f0;
+        padding-bottom: 12px;
+        border-radius: 5px;
+    }
+    .account-menu:after {
+        top: -12px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        transform: rotate(180deg);
+        width: 0;
+        position: absolute;
+        border-top-color: #f0f0f0;
+        border-width: 6px;
+        left: 15px;
+        margin-left: -6px;
+    }
+    .user-name{
+        margin-left: 12px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .profile-image {
+        widows: 36px;
+        height: 36px;
+        border-radius: 18px;
+        margin-left: 12px;
+    }
+}

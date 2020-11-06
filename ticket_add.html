@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/responsive.css"/>
+    <link rel="stylesheet" href="css/font-awesome/css/all.css"/>
+    <link rel="stylesheet" href="css/persian-datepicker.min.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/add_station.js"></script>
+    <script src="js/persian-date.min.js"></script>
+    <script src="js/persian-datepicker.js"></script>
+    <script src="js/add_ticket.js"></script>
+    <title>Pido-Dashboard</title>
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row ra-dir">
+        <div class="side-menu h-auto col-md-2   col-sm-2 col-lg-2 p-xs-right back-dark">
+            <div onclick="close_drawer_menu()" class="side-menu-back text-color-white d-wider-xs-none">
+                <span class="fa fa-arrow-right"></span>
+                <span class="ir-text-bold text-14">بازگشت</span>
+            </div>
+            <div class="side-menu-logo d-xs-none">
+                <img src="assets/logo_name_name.png" alt="logo">
+            </div>
+
+            <div id="data" class="side-menu-item  text-color-white ">
+                <div class="d-flex align-items-center side-menu-item-title">
+                    <span class="fa fa-database text-16"></span>
+                    <span class="ir-text-medium text-16">داده</span>
+                    <span class="fa fa-angle-left side-menu-icon"></span>
+                </div>
+                <div class="side-menu-sub-menu">
+                    <a href="operation.html">
+                        <span class="fa fa-headset text-14"></span>
+                        <span class="ir-text-medium text-12">اپراتورها</span>
+                    </a>
+                    <a href="station.html">
+                        <span class="fa fa-gas-pump text-12"></span>
+                        <span class="ir-text-medium text-8">جایگاه ها</span>
+                    </a>
+                    <a href="experts.html" class="active-sub-menu-item">
+                        <span class="fa fa-suitcase text-14"></span>
+                        <span class="ir-text-medium text-12">متخصصین</span>
+                    </a>
+                    <a href="devices.html">
+                        <span class="fa fa-box text-14"></span>
+                        <span class="ir-text-medium text-12">ادوات</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+        <div class="right-part col-md-10 col-sm-12 col-lg-10 col-xs-12">
+            <div class="header xs-overflow-hide">
+                <div class="main-header">
+                    <div onclick="open_account_menu()" class="account">
+                        <span class="fa fa-angle-down account-drop-down-icon"></span>
+                        <p class="user-name ir-text-medium text-14 d-xs-none">Pido Admin</p>
+                        <img src="assets/download.png" alt="profile image" class="profile-image">
+                    </div>
+                    <div class="app-tools d-wider-xs-none">
+                        <span onclick="open_drawer_menu()" class="fa fa-bars text-22"></span>
+                        <img src="assets/logo_name_name.png" alt="logo image" class="logo-image">
+                    </div>
+                </div>
+                <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+                    <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+                    <div class="account-menu-item">
+                        <span class="fa fa-bell text-12"></span>
+                        <span class="text-12 ir-text-medium">اعلان ها</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-cog text-12"></span>
+                        <span class="text-12 ir-text-medium">تنظیمات</span>
+                    </div>
+                    <div class="account-menu-item">
+                        <span class="fa fa-sign-out-alt text-12"></span>
+                        <span class="text-12 ir-text-medium">خروج</span>
+                    </div>
+                    <span onclick="close_account_menu()"
+                          class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"></span>
+                </div>
+            </div>
+            <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+            <div class="data-main container h-auto">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-12 col-lg-10 col-xl-10 col-sm-12 ">
+                        <div class="header-title">
+                            <h2><i class="fas fa-ticket"></i>افزودن تیکت</h2>
+                            <p>ایجاد تیکت جدید</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">تیکت ها</a></li>
+                                <li class="breadcrumb-item " aria-current="page">افزودن تیکت</li>
+
+                            </ol>
+                        </nav>
+                    </div>
+
+
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 ">
+
+                            <div id="add-ticket-alerts"></div>
+                            <div class="edit-wrapper w-100 p-3 edit-info">
+
+                                <div class="form-group">
+                                    <h6 class="mt-2 ">عنوان تیکت:</h6>
+                                    <div class="from-group"><input class=" form-control" id="ticket-title"></div>
+                                </div>
+                                <div class="form-group">
+                                    <h6 class="mt-2 ">توضیحات</h6>
+                                    <div class="from-group"><textarea class="w-100 form-control" id="ticket-ex"></textarea></div>
+                                </div>
+                                <div class="form-group">
+                                    <h6 class="mt-2 text-dark">توضیحات اپراتور</h6>
+                                    <div class="from-group"><textarea class="w-100 form-control" id="operator-ex"></textarea></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="expert" class="text-dark"><i class="fa fa-warning pl-1"></i>سطح تیکت :</label>
+                                            <select class="selectpicker my-select form-control pull-right " id="level"
+                                                    data-live-search="true" >
+
+                                                <option class="" value="1" selected="selected">اظطراری</option>
+                                                <option class="" value="2">مهم</option>
+                                                <option class="" value="3">معمولی</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="expert" class="text-dark"><i class="fas fa-headset pl-1"></i>متخصص:</label>
+                                            <select class="selectpicker my-select form-control " id="expert"
+                                                    data-live-search="true">
+                                                <!--متخصص ها -->
+                                                <option class="" value="0">متخصص را انتخاب کنید</option>
+
+                                                <!--متخصص ها -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="deadline" class="text-dark"><i class="fas fa-calendar pl-1"></i>مهلت
+                                                پایان:</label>
+                                            <input type="text" class="form-control" id="deadline" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="device" class="text-dark"><i class="fa fa-box pl-1"></i>دستگاه:</label>
+                                            <select class="selectpicker my-select form-control " id="device"
+                                                    data-live-search="true">
+                                                <option class="" value="0">دستگاه را انتخاب کنید</option>
+                                                <option class="" value="1" >دستگاه 1</option>
+                                                <option class="" value="2">دستگاه 2</option>
+                                                <option class="" value="3">دستگاه 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="category" class="text-dark"><i class="fas fa-tag pl-1"></i>رسته:</label>
+                                            <select class="selectpicker my-select form-control " id="category"
+                                                    data-live-search="true">
+                                                <option class="" value="0">رسته را انتخاب کنید</option>
+                                                <option class="" value="1">نرم افزاری</option>
+                                                <option class="" value="2">سخت افزاری</option>
+                                                <option class="" value="3">جانبی</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="station" class="text-dark"><i class="fa fa-gas-pump pl-1"></i>جایگاه:</label>
+                                            <select class="selectpicker my-select form-control " id="station"
+                                                    data-live-search="true">
+                                                <option class="" value="0">جایگاه را انتخاب کنید</option>
+                                                <option class="" value="1">جایگاه 1</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="state" class="text-dark"><i
+                                                    class="fas fa-layer-group pl-1"></i>مرحله:</label>
+                                            <select class="selectpicker my-select form-control " id="state"
+                                                    data-live-search="true">
+                                                <option class="" value="1">تخصیص نیافته</option>
+                                                <option class="" value="2">تخصیص یافته</option>
+                                                <option class="" value="2">شروع به کار</option>
+                                                <option class="" value="2">اتمام کار</option>
+                                                <option class="" value="2">بسته شده</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group ">
+                                            <label for="Solution" class="text-dark w-100"> راه حل:</label>
+                                            <textarea class="w-100" id="Solution"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group ">
+                                            <label for="Solution" class="text-dark w-100">
+                                                افزودن تصویر:
+                                            </label>
+
+                                            <input class="w-100 form-control" id="image-upload" type="file"
+                                                   accept="image/x-png,image/gif,image/jpeg">
+                                                    <div id="img-wp">
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mt-4">
+                                        <h5 class="mb-0"> تسک ها</h5>
+                                        <div id="task-alert"></div>
+                                        <div class=" w-100 p-3 pt-0">
+                                            <div class="w-100   pt-0 ">
+                                                <div class="row edit-wrapper ">
+                                                    <div class="col-12 mt-2"><h6 class=""> افزودن تسک جدید</h6></div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"><input type="text" class="form-control"
+                                                                                       id="add-task-name" placeholder="نام تسک">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"><input type="text" class="form-control"
+                                                                                       id="add-task-description"
+                                                                                       placeholder="توضیح تسک"></div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <p class="text-danger float-right add-task-error font-13"></p>
+                                                        <button class="btn height-35px btn-primary mb-2  float-left font-13" id="add-task">
+                                                            افزودن تسک جدید
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row " id="task-list">
+                                                    <!--for-->
+
+                                                    <!--end for-->
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 border-top pt-3 row mt-4 m-0">
+                                        <div class="col-lg-6  d-none d-lg-block ">
+                                            <ul class="list-style-none font-13 add-ticket-error text-danger">
+
+
+                                            </ul>
+                                        </div>
+
+
+
+
+                                        <div class="col-lg-6  d-flex  justify-content-center  justify-content-lg-end">
+                                            <button class="btn btn-danger font-13 height-35px" style="width:100px;">لغو</button>
+                                            <button class="btn status-last-bg text-light font-13 mr-1 height-35px" id="add-ticket">
+                                                افزودن و تایید
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-right">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h5 class="modal-title" id="exampleModalLabel"> عملیات حذف</h5>
+
+                                </div>
+                                <div class="modal-body">
+                                    آیا میخواهید تسک مورد نظر را حذف نمایید؟
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">لغو
+                                    </button>
+                                    <button type="button" id="modal-delete" class="btn btn-danger" data-dismiss="modal">
+                                        حذف
+                                        تسک
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------end of content---------------------------------------------------------------------------------------- -->
+
+
+</body>
+
+</html>

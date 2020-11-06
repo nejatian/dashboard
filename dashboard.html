@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/add_station.js"></script>
+  <title>Pido-Dashboard</title>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row ra-dir">
+      <div class="side-menu h-auto col-md-2 col-sm-2 col-lg-2 p-xs-right back-dark">
+        <div onclick="close_drawer_menu()" class="side-menu-back text-color-white d-wider-xs-none">
+          <span class="fa fa-arrow-right"></span>
+          <span class="ir-text-bold text-14">بازگشت</span>
+        </div>
+        <div class="side-menu-logo d-xs-none">
+          <img src="assets/logo_name_name.png" alt="logo">
+        </div>
+
+        <div id="data" class="side-menu-item  text-color-white ">
+          <div class="d-flex align-items-center side-menu-item-title">
+            <span class="fa fa-database text-16"></span>
+            <span class="ir-text-medium text-16">داده</span>
+            <span class="fa fa-angle-left side-menu-icon"></span>
+          </div>
+          <div class="side-menu-sub-menu">
+            <a href="operation.html" class="">
+              <span class="fa fa-headset text-14"></span>
+              <span class="ir-text-medium text-12 ">اپراتورها</span>
+            </a>
+            <a href="station.html">
+              <span class="fa fa-gas-pump text-12"></span>
+              <span class="ir-text-medium text-8">جایگاه ها</span>
+            </a>
+            <a href="experts.html" class="">
+              <span class="fa fa-suitcase text-14"></span>
+              <span class="ir-text-medium text-12 ">متخصصین</span>
+            </a>
+            <a href="devices.html">
+              <span class="fa fa-box text-14"></span>
+              <span class="ir-text-medium text-12">ادوات</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-2 col-2    d-block    d-lg-block"></div>
+      <div class="right-part col-md-10 col-sm-10 col-lg-10 col-xs-12">
+        <div class="header xs-overflow-hide">
+          <div class="main-header">
+            <div onclick="open_account_menu()" class="account">
+              <span class="fa fa-angle-down account-drop-down-icon"></span>
+              <p class="user-name ir-text-medium text-14 d-xs-none">Pido Admin</p>
+              <img src="assets/download.png" alt="profile image" class="profile-image">
+            </div>
+            <div class="app-tools d-wider-xs-none">
+              <span onclick="open_drawer_menu()" class="fa fa-bars text-22"></span>
+              <img src="assets/logo_name_name.png" alt="logo image" class="logo-image">
+            </div>
+          </div>
+          <div class="account-menu col-md-2 col-sm-2 col-lg-2 col-xs-12">
+            <p class="text-14 ir-text-medium d-wider-xs-none">Pido Admin</p>
+            <div class="account-menu-item">
+              <span class="fa fa-bell text-12"></span>
+              <span class="text-12 ir-text-medium">اعلان ها</span>
+            </div>
+            <div class="account-menu-item">
+              <span class="fa fa-cog text-12"></span>
+              <span class="text-12 ir-text-medium">تنظیمات</span>
+            </div>
+            <div class="account-menu-item">
+              <span class="fa fa-sign-out-alt text-12"></span>
+              <span class="text-12 ir-text-medium">خروج</span>
+            </div>
+            <span onclick="close_account_menu()" class="fa fa-angle-up text-12 close-account-menu d-wider-xs-none"></span>
+          </div>
+        </div>
+        <!-- ------------main page of data section----------------------------------------------------------------------------------------------- -->
+        <div class="data-main container">
+          <div class="header-title">
+            <h2><i class="fa fa-database"></i> داده ها</h2>
+            <p>در این بخش با توجه به دسته بندی مورد نظر خود میتوانید در میان داده ها جست و جو کرده، آن ها را ویرایش کرده و یا به ان ها بیفزایید</p>
+          </div>
+          <div class="divider"></div>
+          <div class="data-header">
+
+            <div style="margin-top:24px;" class="row ra-box-views">
+              <div id="data-card-admin" class="data-selection-card ir-text-medium text-color-white col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                <div class="data-red-mask col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <p class="text-20">اپراتور</p>
+                  <p class="text-12 data-section-card-hint">ویرایش و افزودن اپراتور با تخصیص نام کاربری و رمز عبور. اپراتور های اضافه شده نمیتوانند اپراتور اضافه کنند</p>
+                  <p class="text-12 data-section-card-num">اپراتورهای اضافه شده تا کنون: ۳۰ نفر</p>
+                </div>
+              </div>
+              <div id="data-card-station" class="data-selection-card ir-text-medium text-color-white col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                <div class="data-red-mask col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <p class="text-20">جایگاه</p>
+                  <p class="text-12 data-section-card-hint">جست و جو، ویرایش و افزودن جایگاه جدید با وارد کردن اطلاعات جایگاه و جایگاه دار</p>
+                  <p class="text-12 data-section-card-num">جایگاه های اضافه شده تا کنون: ۴۸۲۶ جایگاه</p>
+                </div>
+              </div>
+              <div id="data-card-technecian" class="data-selection-card ir-text-medium text-color-white col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                <div class="data-red-mask col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <p class="text-20">متخصص</p>
+                  <p class="text-12 data-section-card-hint">جست و جو، ویرایش و افزودن متخصص جدید و تعیین رسته فعالیت و اختصاص نام کاربری و رمز عبور</p>
+                  <p class="text-12 data-section-card-num">متخصص های اضافه شده تا کنون: ۲۵۳۲ نفر</p>
+                </div>
+              </div>
+              <div id="data-card-devices" class="data-selection-card ir-text-medium text-color-white col-md-6 col-sm-12 col-lg-6 col-xs-12">
+                <div class="data-red-mask col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <p class="text-20">ادوات</p>
+                  <p class="text-12 data-section-card-hint">جست و جو، ویرایش و افزودن ادوات مربوط به جایگاه سوخت گیری با وارد کردن رسته کاربرد دستگاه</p>
+                  <p class="text-12 data-section-card-num">ادوات اضافه شده تا کنون: ۱۷۸۵۶ دستگاه</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ------------add station---------------------------------------------------------------------------------------- -->
+        <div id="add-station-page" style="display:none" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 add-data">
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-header">
+            <p class="ir-text-medium add-data-header-title text-14"><span class="bread-crumbs-link">داده ها</span><span class="fa fa-angle-double-left"></span><span class="bread-crumbs-link">جایگاه ها</span><span class="fa fa-angle-double-left"></span><span
+                class="text-20 ">افزودن جایگاه</span></p>
+            <p class="text-14 ir-text-medium add-data-header-hint">اطلاعات جایگاه را به ترتیب وارد کرده و در نهایت اطلاعات را تایید کنید.
+              طول
+              و عرض جغرافیایی را میتوانید از نقشه های آنلاین بدست آورید.</p>
+            <div class="divider"></div>
+          </div>
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-form">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 content-form-body">
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام جایگاه دار</p>
+                <input class="text-14 ir-text-medium add-data-form-input name-input" placeholder="مثلا محمد محمدی..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> شماره تماس جایگاه</p>
+                <input class="text-14 ir-text-medium add-data-form-input phone-input" placeholder="مثلا  ۰۹۱۲۱۱۱۱۱۱۱ ..." type="text" />
+              </div>
+              <!--------------drop down------------------>
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> استان جایگاه</p>
+                <div class="dropdown add-station-city ir-text-medium text-12 province-input">
+                  <button class="btn add-data-form-input dropdown-toggle" type="button" data-toggle="dropdown">انتخاب کنید
+                    <span class="caret"></span></button>
+                  <ul class="dropdown-menu add-station-city-result">
+                    <li>تهران</li>
+                    <li>اصفهان</li>
+                    <li>مرکزی</li>
+                    <li>تهران</li>
+                    <li>اصفهان</li>
+                    <li>مرکزی</li>
+                    <li>تهران</li>
+                    <li>اصفهان</li>
+                    <li>مرکزی</li>
+                    <li>تهران</li>
+                    <li>اصفهان</li>
+                    <li>مرکزی</li>
+                  </ul>
+                </div>
+              </div>
+              <!--------------drop down------------------>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> کد جایگاه</p>
+                <input class="text-14 ir-text-medium add-data-form-input code-input" placeholder="مثلا ۲۵۶۴۱ ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> شماره جایگاه</p>
+                <input class="text-14 ir-text-medium add-data-form-input static-phone-input" placeholder="مثلا ۰۲۱۸۸۸۸۸۸۸ ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> عرض جغرافیایی</p>
+                <input class="text-14 ir-text-medium add-data-form-input long-input" placeholder="مثلا ۵۹۶۶۷۸۹۵ ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold">طول جغرافیایی</p>
+                <input class="text-14 ir-text-medium add-data-form-input lat-input" placeholder="مثلا ۳۹۵۵۶۴۸ ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold">آدرس جایگاه</p>
+                <textarea class="text-14 ir-text-medium add-data-form-input address-input" placeholder="مثلا تهران، ستارخان، جلدی، نبش تکبیری ..." type="text" rows="5" style="resize: none"></textarea>
+              </div>
+              <div class="add-data-form-item">
+                <input type="submit" class="add-data-form-submit text-14 ir-text-medium text-color-white" value="تائید و افزودن">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none content-form-image">
+              <img src="assets/some.svg">
+            </div>
+
+          </div>
+        </div>
+        <!-- ------------add oprator---------------------------------------------------------------------------------------- -->
+        <div id="add-oprator-page" style="display:none" id="add-oprator-page" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 add-data">
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-header">
+            <p class="ir-text-medium add-data-header-title text-14"><span class="bread-crumbs-link">داده ها</span><span class="fa fa-angle-double-left"></span><span class="bread-crumbs-link">اپراتور</span><span class="fa fa-angle-double-left"></span><span
+                class="text-20 ">افزودن اپراتور</span></p>
+            <p class="text-14 ir-text-medium add-data-header-hint">نام اپراتور را وارد کرده و نام کاربری و رمز عبور مناسبی را وارد کنید</p>
+            <div class="divider"></div>
+          </div>
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-form">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 content-form-body">
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام </p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا محمد محمدی ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام کاربری اپراتور</p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا @mohammad ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> رمز عبور</p>
+                <input class="text-14 ir-text-medium add-data-form-input" type="password" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold">تکرار رمز عبور</p>
+                <input class="text-14 ir-text-medium add-data-form-input" type="password" />
+              </div>
+
+              <div class="add-data-form-item">
+                <input type="submit" class="add-data-form-submit text-14 ir-text-medium text-color-white" value="تائید و افزودن">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none content-form-image">
+              <img src="assets/some.svg">
+            </div>
+
+          </div>
+        </div>
+        <!-- ------------add technecian---------------------------------------------------------------------------------------- -->
+        <div id="add-technecian-page" style="display:none" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 add-data">
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-header">
+            <p class="ir-text-medium add-data-header-title text-14"><span class="bread-crumbs-link">داده ها</span><span class="fa fa-angle-double-left"></span><span class="bread-crumbs-link">متخصص</span><span class="fa fa-angle-double-left"></span><span
+                class="text-20 ">افزودن متخصص</span></p>
+            <p class="text-14 ir-text-medium add-data-header-hint">نام و شماره متخصص را وارد کرده و نام کاربری و رمز عبور مناسبی را وارد کنید. همچنین رسته فعالت وی را نیز تعیین نمایید</p>
+            <div class="divider"></div>
+          </div>
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-form">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 content-form-body">
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام </p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا محمد محمدی ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> شماره تلفن </p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا ۰۹۱۲۱۱۱۱۱۱۱ ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> رسته فعالیت</p>
+                <div class="dropdown add-station-city ir-text-medium text-12">
+                  <button class="btn add-data-form-input dropdown-toggle" type="button" data-toggle="dropdown">انتخاب کنید
+                    <span class="caret"></span></button>
+                  <ul class="dropdown-menu add-station-city-result">
+                    <li>نرم افزاری</li>
+                    <li>سخت افزاری</li>
+                    <li>میدانی</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام کاربری متخصص</p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا @mohammad ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> رمز عبور</p>
+                <input class="text-14 ir-text-medium add-data-form-input" type="password" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold">تکرار رمز عبور</p>
+                <input class="text-14 ir-text-medium add-data-form-input" type="password" />
+              </div>
+
+              <div class="add-data-form-item">
+                <input type="submit" class="add-data-form-submit text-14 ir-text-medium text-color-white" value="تائید و افزودن">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none content-form-image">
+              <img src="assets/some.svg">
+            </div>
+
+          </div>
+        </div>
+        <!-- ------------add devices---------------------------------------------------------------------------------------- -->
+        <div id="add-device-page" style="display:none" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 add-data">
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-header">
+            <p class="ir-text-medium add-data-header-title text-14"><span class="bread-crumbs-link">داده ها</span><span class="fa fa-angle-double-left"></span><span class="bread-crumbs-link">ادوات</span><span class="fa fa-angle-double-left"></span><span
+                class="text-20 ">افزودن ادوات</span></p>
+            <p class="text-14 ir-text-medium add-data-header-hint">نام دستگاه و رسته فعالیت آن را مشخص کرده و وضعیت فعالیت آن را نیز تعیین کنید</p>
+            <div class="divider"></div>
+          </div>
+          <div class="col-md-11 col-sm-11 col-lg-11 col-xs-12 add-data-form">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 content-form-body">
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> نام دستگاه </p>
+                <input class="text-14 ir-text-medium add-data-form-input" placeholder="مثلا نازل بنزین ..." type="text" />
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> رسته فعالیت</p>
+                <div class="dropdown add-station-city ir-text-medium text-12">
+                  <button class="btn add-data-form-input dropdown-toggle" type="button" data-toggle="dropdown">انتخاب کنید
+                    <span class="caret"></span></button>
+                  <ul class="dropdown-menu add-station-city-result">
+                    <li>نرم افزاری</li>
+                    <li>سخت افزاری</li>
+                    <li>ادوات جانبی</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="add-data-form-item">
+                <p class="text-14 ir-text-bold"> وضعیت</p>
+                <div class="dropdown add-station-city ir-text-medium text-12">
+                  <button class="btn add-data-form-input dropdown-toggle" type="button" data-toggle="dropdown">انتخاب کنید
+                    <span class="caret"></span></button>
+                  <ul class="dropdown-menu add-station-city-result">
+                    <li>فعال</li>
+                    <li>غیر فعال</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="add-data-form-item">
+                <input type="submit" class="add-data-form-submit text-14 ir-text-medium text-color-white" value="تائید و افزودن">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 d-xs-none content-form-image">
+              <img src="assets/some.svg">
+            </div>
+
+          </div>
+        </div>
+        <!-- ------------end of content---------------------------------------------------------------------------------------- -->
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
